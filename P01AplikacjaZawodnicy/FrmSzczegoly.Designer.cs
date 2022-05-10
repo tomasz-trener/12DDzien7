@@ -39,10 +39,9 @@
             this.txtWzrost = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtWaga = new System.Windows.Forms.TextBox();
-            this.dtpDataUrodzenia = new System.Windows.Forms.DateTimePicker();
-            this.txtDataUrodzenia = new System.Windows.Forms.TextBox();
             this.btnZapisz = new System.Windows.Forms.Button();
             this.btnUsun = new System.Windows.Forms.Button();
+            this.dtpDataUrodzenia = new P01AplikacjaZawodnicy.DateTimePickerNullable();
             this.SuspendLayout();
             // 
             // txtImie
@@ -134,22 +133,6 @@
             this.txtWaga.Size = new System.Drawing.Size(175, 20);
             this.txtWaga.TabIndex = 10;
             // 
-            // dtpDataUrodzenia
-            // 
-            this.dtpDataUrodzenia.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDataUrodzenia.Location = new System.Drawing.Point(13, 151);
-            this.dtpDataUrodzenia.Name = "dtpDataUrodzenia";
-            this.dtpDataUrodzenia.Size = new System.Drawing.Size(174, 20);
-            this.dtpDataUrodzenia.TabIndex = 12;
-            // 
-            // txtDataUrodzenia
-            // 
-            this.txtDataUrodzenia.Location = new System.Drawing.Point(13, 151);
-            this.txtDataUrodzenia.Name = "txtDataUrodzenia";
-            this.txtDataUrodzenia.Size = new System.Drawing.Size(174, 20);
-            this.txtDataUrodzenia.TabIndex = 13;
-            this.txtDataUrodzenia.Click += new System.EventHandler(this.txtDataUrodzenia_Click);
-            // 
             // btnZapisz
             // 
             this.btnZapisz.Location = new System.Drawing.Point(112, 256);
@@ -171,15 +154,22 @@
             this.btnUsun.Visible = false;
             this.btnUsun.Click += new System.EventHandler(this.btnUsun_Click);
             // 
+            // dtpDataUrodzenia
+            // 
+            this.dtpDataUrodzenia.Location = new System.Drawing.Point(12, 149);
+            this.dtpDataUrodzenia.Name = "dtpDataUrodzenia";
+            this.dtpDataUrodzenia.Size = new System.Drawing.Size(175, 20);
+            this.dtpDataUrodzenia.TabIndex = 16;
+            this.dtpDataUrodzenia.Value = null;
+            // 
             // FrmSzczegoly
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(206, 292);
+            this.Controls.Add(this.dtpDataUrodzenia);
             this.Controls.Add(this.btnUsun);
             this.Controls.Add(this.btnZapisz);
-            this.Controls.Add(this.txtDataUrodzenia);
-            this.Controls.Add(this.dtpDataUrodzenia);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtWaga);
             this.Controls.Add(this.label5);
@@ -211,9 +201,8 @@
         private System.Windows.Forms.TextBox txtWzrost;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtWaga;
-        private System.Windows.Forms.DateTimePicker dtpDataUrodzenia;
-        private System.Windows.Forms.TextBox txtDataUrodzenia;
         private System.Windows.Forms.Button btnZapisz;
         private System.Windows.Forms.Button btnUsun;
+        private DateTimePickerNullable dtpDataUrodzenia;
     }
 }

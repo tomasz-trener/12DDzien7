@@ -49,6 +49,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DateTimePickerNullable.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DateTimePickerNullable.Designer.cs">
+      <DependentUpon>DateTimePickerNullable.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmStartowy.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -63,6 +69,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="DateTimePickerNullable.resx">
+      <DependentUpon>DateTimePickerNullable.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmStartowy.resx">
       <DependentUpon>FrmStartowy.cs</DependentUpon>
     </EmbeddedResource>

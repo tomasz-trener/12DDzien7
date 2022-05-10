@@ -17,12 +17,23 @@ namespace P01AplikacjaZawodnicy
         public FrmStartowy()
         {
             InitializeComponent();
+
+            ZawodnicyRepository zr = new ZawodnicyRepository();
+
+            string[] kraje= zr.PodajKraje();
+            cbKraje.Items.Add("-- Wszystkie --");
+            foreach (var k in kraje)
+                cbKraje.Items.Add(k);
+
+
         }
 
         public void Odswiez()
         {
             ZawodnicyRepository zr = new ZawodnicyRepository();
-            Zawodnik[] zawodnicy = zr.PodajZawodnikow();
+
+            string wybranyKraj = cbKraje.SelectedIndex == 0 ? null : cbKraje.Text;
+            Zawodnik[] zawodnicy = zr.PodajZawodnikowPoKraju(wybranyKraj);
 
             //foreach (var z in zawodnicy)
             //    lvDane.Items.Add(z.Imie + " " + z.Nazwisko);
@@ -60,6 +71,14 @@ namespace P01AplikacjaZawodnicy
         private void btnNowy_Click(object sender, EventArgs e)
         {
             FrmSzczegoly fs = new FrmSzczegoly(this);
+            fs.Show();
+        }
+
+        private void lvDane_DoubleClick(object sender, EventArgs e)
+        {
+            Zawodnik zaznaczony = (Zawodnik)lvDane.SelectedItems[0].Tag;
+
+            FrmSzczegoly fs = new FrmSzczegoly(this, zaznaczony);
             fs.Show();
         }
     }

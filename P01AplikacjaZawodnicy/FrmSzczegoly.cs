@@ -39,12 +39,14 @@ namespace P01AplikacjaZawodnicy
             txtImie.Text = zawodnik.Imie;
             txtNazwisko.Text = zawodnik.Nazwisko;
             txtKraj.Text = zawodnik.Kraj;
-            
-            if(zawodnik.DataUrodzenia != null)
-            {
-                dtpDataUrodzenia.Value = (DateTime)zawodnik.DataUrodzenia;
-                txtDataUrodzenia.Visible = false;
-            }
+
+            // stara wersja gdy recznie zmienialismy widocznosc textboxa 
+            //if(zawodnik.DataUrodzenia != null)
+            //{
+            //    //dtpDataUrodzenia.Value = (DateTime)zawodnik.DataUrodzenia;
+            //    //txtDataUrodzenia.Visible = false;
+            //}
+            dtpDataUrodzenia.Value =zawodnik.DataUrodzenia ;
 
             txtWzrost.Text = Convert.ToString(zawodnik.Wzrost);
             txtWaga.Text = Convert.ToString(zawodnik.Waga);
@@ -52,10 +54,7 @@ namespace P01AplikacjaZawodnicy
             btnUsun.Visible = true;
         }
 
-        private void txtDataUrodzenia_Click(object sender, EventArgs e)
-        {
-            txtDataUrodzenia.Visible = false;
-        }
+
 
         private void btnZapisz_Click(object sender, EventArgs e)
         {
@@ -66,8 +65,10 @@ namespace P01AplikacjaZawodnicy
             zawodnik.Imie = txtImie.Text;
             zawodnik.Nazwisko = txtNazwisko.Text;
             zawodnik.Kraj = txtKraj.Text;
-            if(!txtDataUrodzenia.Visible)
-                zawodnik.DataUrodzenia = dtpDataUrodzenia.Value;
+            //   if(!txtDataUrodzenia.Visible)
+            //       zawodnik.DataUrodzenia = dtpDataUrodzenia.Value;
+
+            zawodnik.DataUrodzenia = dtpDataUrodzenia.Value;
             zawodnik.Wzrost = Convert.ToInt32(txtWzrost.Text);
             zawodnik.Waga = Convert.ToInt32(txtWaga.Text);
 

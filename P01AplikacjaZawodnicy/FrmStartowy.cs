@@ -19,20 +19,47 @@ namespace P01AplikacjaZawodnicy
             InitializeComponent();
         }
 
-        private void btnWczytaj_Click(object sender, EventArgs e)
+        public void Odswiez()
         {
             ZawodnicyRepository zr = new ZawodnicyRepository();
             Zawodnik[] zawodnicy = zr.PodajZawodnikow();
 
+            //foreach (var z in zawodnicy)
+            //    lvDane.Items.Add(z.Imie + " " + z.Nazwisko);
+
+            lvDane.Items.Clear();
+
             foreach (var z in zawodnicy)
-                lvDane.Items.Add(z.Imie + " " + z.Nazwisko);
+                lvDane.Items.Add(new ListViewItem()
+                {
+                    Text = z.Imie + " " + z.Nazwisko,
+                    Tag = z
+                });
+        }
 
-
+        private void btnWczytaj_Click(object sender, EventArgs e)
+        {
+            Odswiez();
+            btnNowy.Enabled = true;
+            btnSzczegoly.Enabled = true;
         }
 
         private void lvDane_SelectedIndexChanged(object sender, EventArgs e)
         {
-            FrmSzczegoly fs = new FrmSzczegoly();
+            
+        }
+
+        private void btnSzczegoly_Click(object sender, EventArgs e)
+        {
+            Zawodnik zaznaczony= (Zawodnik)lvDane.SelectedItems[0].Tag;
+
+            FrmSzczegoly fs = new FrmSzczegoly(this, zaznaczony);
+            fs.Show();
+        }
+
+        private void btnNowy_Click(object sender, EventArgs e)
+        {
+            FrmSzczegoly fs = new FrmSzczegoly(this);
             fs.Show();
         }
     }

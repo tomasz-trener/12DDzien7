@@ -30,6 +30,8 @@
         {
             this.lvDane = new System.Windows.Forms.ListView();
             this.btnWczytaj = new System.Windows.Forms.Button();
+            this.btnSzczegoly = new System.Windows.Forms.Button();
+            this.btnNowy = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lvDane
@@ -53,14 +55,38 @@
             this.btnWczytaj.UseVisualStyleBackColor = true;
             this.btnWczytaj.Click += new System.EventHandler(this.btnWczytaj_Click);
             // 
-            // Form1
+            // btnSzczegoly
+            // 
+            this.btnSzczegoly.Enabled = false;
+            this.btnSzczegoly.Location = new System.Drawing.Point(284, 12);
+            this.btnSzczegoly.Name = "btnSzczegoly";
+            this.btnSzczegoly.Size = new System.Drawing.Size(75, 23);
+            this.btnSzczegoly.TabIndex = 2;
+            this.btnSzczegoly.Text = "Szczegóły";
+            this.btnSzczegoly.UseVisualStyleBackColor = true;
+            this.btnSzczegoly.Click += new System.EventHandler(this.btnSzczegoly_Click);
+            // 
+            // btnNowy
+            // 
+            this.btnNowy.Enabled = false;
+            this.btnNowy.Location = new System.Drawing.Point(203, 12);
+            this.btnNowy.Name = "btnNowy";
+            this.btnNowy.Size = new System.Drawing.Size(75, 23);
+            this.btnNowy.TabIndex = 3;
+            this.btnNowy.Text = "Nowy";
+            this.btnNowy.UseVisualStyleBackColor = true;
+            this.btnNowy.Click += new System.EventHandler(this.btnNowy_Click);
+            // 
+            // FrmStartowy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(445, 408);
+            this.ClientSize = new System.Drawing.Size(376, 381);
+            this.Controls.Add(this.btnNowy);
+            this.Controls.Add(this.btnSzczegoly);
             this.Controls.Add(this.btnWczytaj);
             this.Controls.Add(this.lvDane);
-            this.Name = "Form1";
+            this.Name = "FrmStartowy";
             this.Text = "Form1";
             this.ResumeLayout(false);
 
@@ -70,6 +96,8 @@
 
         private System.Windows.Forms.ListView lvDane;
         private System.Windows.Forms.Button btnWczytaj;
+        private System.Windows.Forms.Button btnSzczegoly;
+        private System.Windows.Forms.Button btnNowy;
     }
 }
 

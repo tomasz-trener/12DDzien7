@@ -1,0 +1,5 @@
+﻿
+1) Komunikacja pomiedzy formularzami
+2) Tworzenie wlasnych user controls 
+3) zabezpieczenie przed sql injection 
+4) nowa kontrolka listview

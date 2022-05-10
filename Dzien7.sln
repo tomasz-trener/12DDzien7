@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P01AplikacjaZawodnicy", "P0
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P02KomunikacjaPomiedzyFormularzami", "P02KomunikacjaPomiedzyFormularzami\P02KomunikacjaPomiedzyFormularzami.csproj", "{13B53131-7CF0-47CC-B95B-296475BBA489}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P00CoPoznalismy", "P00CoPoznalismy\P00CoPoznalismy.csproj", "{44EDE635-9DD4-4161-9464-269D15FC0B2A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{13B53131-7CF0-47CC-B95B-296475BBA489}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{13B53131-7CF0-47CC-B95B-296475BBA489}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{13B53131-7CF0-47CC-B95B-296475BBA489}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44EDE635-9DD4-4161-9464-269D15FC0B2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44EDE635-9DD4-4161-9464-269D15FC0B2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44EDE635-9DD4-4161-9464-269D15FC0B2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44EDE635-9DD4-4161-9464-269D15FC0B2A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

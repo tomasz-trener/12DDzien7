@@ -44,7 +44,6 @@
             this.lvDane.Size = new System.Drawing.Size(347, 288);
             this.lvDane.TabIndex = 0;
             this.lvDane.UseCompatibleStateImageBehavior = false;
-            this.lvDane.View = System.Windows.Forms.View.List;
             this.lvDane.SelectedIndexChanged += new System.EventHandler(this.lvDane_SelectedIndexChanged);
             this.lvDane.DoubleClick += new System.EventHandler(this.lvDane_DoubleClick);
             // 

@@ -67,6 +67,7 @@
     <Compile Include="FrmSzczegoly.Designer.cs">
       <DependentUpon>FrmSzczegoly.cs</DependentUpon>
     </Compile>
+    <Compile Include="Kolumna.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="DateTimePickerNullable.resx">

@@ -3,3 +3,6 @@
 2) Tworzenie wlasnych user controls 
 3) zabezpieczenie przed sql injection 
 4) nowa kontrolka listview
+5) generowanie pdf
+6) stronicowanie 
+7) sortowanie 

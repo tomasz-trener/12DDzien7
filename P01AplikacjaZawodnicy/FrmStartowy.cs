@@ -1,4 +1,5 @@
 ﻿using P05AplikacjaZawodnicy.Core.Domains;
+using P05AplikacjaZawodnicy.Core.Operations;
 using P05AplikacjaZawodnicy.Core.Repositories;
 using System;
 using System.Collections.Generic;
@@ -26,6 +27,15 @@ namespace P01AplikacjaZawodnicy
             foreach (var k in kraje)
                 cbKraje.Items.Add(k);
 
+            Kolumna[] kolumny = new Kolumna[] 
+            { 
+                new Kolumna() { NazwaWidoczna="Id", KolumnaWBazie="id_zawodnika"},
+                new Kolumna() { NazwaWidoczna="Imie", KolumnaWBazie="imie"},
+                new Kolumna() { NazwaWidoczna="Nazwisko", KolumnaWBazie="nazwisko"},
+                new Kolumna() { NazwaWidoczna="Kraj", KolumnaWBazie="kraj"},
+            };
+            cbSortowanie.DataSource = kolumny;
+            cbSortowanie.DisplayMember = "NazwaWidoczna";
 
         }
 
@@ -34,7 +44,13 @@ namespace P01AplikacjaZawodnicy
             ZawodnicyRepository zr = new ZawodnicyRepository();
 
             string wybranyKraj = cbKraje.SelectedIndex == 0 ? null : cbKraje.Text;
-            Zawodnik[] zawodnicy = zr.PodajZawodnikowPoKraju(wybranyKraj);
+
+
+            int strona = Convert.ToInt32(txtStrona.Text);
+            int ile = Convert.ToInt32(txtIleWyswietlac.Text);
+            string kolumnaSorotwania = ((Kolumna)cbSortowanie.SelectedItem).KolumnaWBazie;
+
+            Zawodnik[] zawodnicy = zr.PodajZawodnikowPoKraju(wybranyKraj,strona,ile, kolumnaSorotwania);
 
             //foreach (var z in zawodnicy)
             //    lvDane.Items.Add(z.Imie + " " + z.Nazwisko);
@@ -53,6 +69,7 @@ namespace P01AplikacjaZawodnicy
                 if (p.Length > 0)
                     listaObrazow.Images.Add(k.ToLower(), Image.FromFile(p.First()));
             }
+            // przerwa 13:10 
 
             lvDane.LargeImageList = listaObrazow;
             lvDane.Items.Clear();
@@ -98,6 +115,33 @@ namespace P01AplikacjaZawodnicy
 
             FrmSzczegoly fs = new FrmSzczegoly(this, zaznaczony);
             fs.Show();
+        }
+
+        private void btnRaport_Click(object sender, EventArgs e)
+        {
+            Zawodnik[] zawodnicy = new Zawodnik[lvDane.Items.Count];
+            for (int i = 0; i < zawodnicy.Length; i++)
+                zawodnicy[i] = (Zawodnik)lvDane.Items[i].Tag;
+
+            GenerowanieRaportuOperation gro = new GenerowanieRaportuOperation();
+
+            string filename = $"{DateTime.Now.ToString("yyyyMMddHHmmss")}_Raport.pdf";
+            gro.GenerujRaport(zawodnicy, filename);
+            
+             string directory = AppDomain.CurrentDomain.BaseDirectory;
+            wbRaport.Navigate(directory +filename);
+        }
+
+        private void btnPrawo_Click(object sender, EventArgs e)
+        {
+            txtStrona.Text = Convert.ToString(Convert.ToInt32(txtStrona.Text) + 1);
+            Odswiez();
+        }
+
+        private void btnLewo_Click(object sender, EventArgs e)
+        {
+            txtStrona.Text = Convert.ToString(Convert.ToInt32(txtStrona.Text) - 1);
+            Odswiez();
         }
     }
 }
